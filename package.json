@@ -1,0 +1,25 @@
+{
+  "name": "planet-caravan-analtyics-toolkit",
+  "version": "1.0.0",
+  "description": "analytics toolkit for Google Analytics events",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Planet-Caravan-Studios/Planet-Caravan-Analytics-Toolkit.git"
+  },
+  "keywords": [
+    "analytics",
+    "google",
+    "analytics",
+    "ga-event"
+  ],
+  "author": "Alec Reimel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Planet-Caravan-Studios/Planet-Caravan-Analytics-Toolkit/issues"
+  },
+  "homepage": "https://github.com/Planet-Caravan-Studios/Planet-Caravan-Analytics-Toolkit#readme"
+}
