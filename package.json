@@ -1,6 +1,6 @@
 {
   "name": "planet-caravan-analtyics-toolkit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "analytics toolkit for Google Analytics events",
   "main": "index.js",
   "exports": "./index.js",
