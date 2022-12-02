@@ -43,7 +43,7 @@ $(document).ready(function(){
 
 		console.log("===== Event Firing primed.  Ready for takeoff. =====");
 
-		$("[data-event='GAEvent']").click(function() {
+		$("[data-event='GAEvent']").onclick(function() {
 			//Set vars
 			var evCat = $(this).attr('data-category') 	? $(this).attr('data-category') : '';
 			var evAct = $(this).attr('data-action') 		? $(this).attr('data-action') : '';
