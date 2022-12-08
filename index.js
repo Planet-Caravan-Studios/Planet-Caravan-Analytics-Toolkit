@@ -1,7 +1,7 @@
 /********************************************
 *********************************************
 
-Holy Mountain - Analytics Plugin
+Planet Caravan - Analytics Plugin
 
 *********************************************
 ********************************************/
@@ -14,10 +14,39 @@ Holy Mountain - Analytics Plugin
 INITIALIZATION
 
 ********************************************/
+/********************************************
+
+CONSOLE LOG FUNCTIONS
+	
+********************************************/
+$(document).ready(function(){
+	$.fn.consoleLogger = function(message) {
+		let showConsole = true;
+		let style = '\
+			font-size: clamp(14px, 2vw, 20px);\
+			color: black;\
+			border: solid 2px black;\
+			padding: 0.5em 1em;\
+		';
+
+		if(showConsole == true){
+			console.log('%c' + message, style);
+		}else{
+			//don't show console logs
+		}
+
+		
+	};
+});
+
 $(document).ready(function() {
 
+
+
 	//console log
-	console.log("===== Holy Mountain Analytics initialized. =====");
+	$('html').consoleLogger("===== Planet Caravan Analytics initialized. =====");
+
+
 
 });
 
@@ -41,9 +70,9 @@ $(document).ready(function(){
 
 	$.fn.eventfire_ready = function(){
 
-		console.log("===== Event Firing primed.  Ready for takeoff. =====");
+		$('html').consoleLogger("===== Event Firing primed.  Ready for takeoff. =====");
 
-		$("[data-event='GAEvent']").onclick(function() {
+		$("[data-event='GAEvent']").click(function() {
 			//Set vars
 			var evCat = $(this).attr('data-category') 	? $(this).attr('data-category') : '';
 			var evAct = $(this).attr('data-action') 		? $(this).attr('data-action') : '';
@@ -61,10 +90,10 @@ $(document).ready(function(){
 					'eventValue': 		evVal,
 				});
 
-				console.log("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
+				$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
 
 			} catch (e) {
-				console.log("GA Event Error");
+				$('html').consoleLogger("GA Event Error");
 			}
 		});
 	};
@@ -82,7 +111,7 @@ GA AUTO-TAGGER - PROGRAMMATIC VERSION
 
 $(document).ready(function() {
 
-	//console.log('Holy Mountain Analytics Initiated');
+	//console.log('Planet Caravan Analytics Initiated');
 
 	/***** PLUGIN FUNCTION - targets specific elements *****/
 		$.fn.autotagger = function(category, action, value, label_format) {
@@ -93,7 +122,7 @@ $(document).ready(function() {
 				} else {
 
 					//console.log notification
-						console.log('GA Auto-Tagger - element tagged - category: '+category);
+						$('html').consoleLogger('GA Auto-Tagger - element tagged - category: '+category);
 					
 					//label grabber
 						if($(this).children().is('img')){
@@ -156,7 +185,7 @@ $(document).ready(function() {
 		//Check if ga_event param exists
 		if (urlParams.has('ga_event')) {
 
-			console.log("URL parameter-based GA Event detected.");
+			$('html').consoleLogger("URL parameter-based GA Event detected.");
 
 			//Set vars
 			var evCat = urlParams.get('ga_cat')	? urlParams.get('ga_cat') : '';
@@ -175,10 +204,10 @@ $(document).ready(function() {
 					'eventValue': 			evVal,
 				});
 
-				console.log("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
+				$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
 
 			} catch (e) {
-				console.log("GA Event Error");
+				$('html').consoleLogger("GA Event Error");
 			}
 
 		}else{
@@ -212,18 +241,18 @@ $(document).ready(function(){
 
 	var searchParams = new URLSearchParams(window.location.search); 
 
-	console.log("===== UTM Session initialized =====");
+	$('html').consoleLogger("===== UTM Session initialized =====");
 
 	/***** Functions *****/
 
 		//Log new UTMs
 		$.fn.utm_log_param = function(utm_type, utm_val) {
-			console.log("UTM parameter detected.  Type: "+utm_type+", Value: "+utm_val);
+			$('html').consoleLogger("UTM parameter detected.  Type: "+utm_type+", Value: "+utm_val);
 		};
 
 		//Log session UTMs
 		$.fn.utm_log_session = function(utm_type, utm_val) {
-			console.log("UTM session detected.  Type: "+utm_type+", Value: "+utm_val);
+			$('html').consoleLogger("UTM session detected.  Type: "+utm_type+", Value: "+utm_val);
 		};
 
 		//Add UTM inputs to forms
@@ -254,7 +283,7 @@ $(document).ready(function(){
 					//.hm_utm_input_group already exists, do nothing
 				}else{
 					$(this).prepend(hm_utm_input_code);
-					console.log("UTM form input group added");
+					$('html').consoleLogger("UTM form input group added");
 
 					//merged from separate value function
 					$(this).find('input[name="utm_source"]').val(sessionStorage.getItem("utm_source"));
@@ -262,7 +291,7 @@ $(document).ready(function(){
 					$(this).find('input[name="utm_campaign"]').val(sessionStorage.getItem("utm_campaign"));
 					$(this).find('input[name="utm_term"]').val(sessionStorage.getItem("utm_term"));
 					$(this).find('input[name="utm_content"]').val(sessionStorage.getItem("utm_content"));
-					console.log("UTM form inputs filled");
+					$('html').consoleLogger("UTM form inputs filled");
 				}
 			});
 		};
@@ -347,9 +376,11 @@ NOTES:
 ********************************************/
 $(document).ready(function(){
 	$.fn.highlightTags = function() {
-		console.log("===== GA Event Elements Highlighted =====");
+		$('html').consoleLogger("===== GA Event Elements Highlighted =====");
 		$("[data-event]").each(function(){
 			$(this).css("outline", "5px solid red");
 		});
 	};
 });
+
+
