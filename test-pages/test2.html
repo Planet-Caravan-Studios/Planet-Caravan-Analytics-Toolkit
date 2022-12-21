@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Analytics Suite Testing | Planet Caravan Studios</title>
 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -10,6 +10,8 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-WP9TNZ4');</script>
 	<!-- End Google Tag Manager -->
+
+	<link rel="stylesheet" href="./style.css">
 </head>
 <body>
 	<!-- Google Tag Manager (noscript) -->
@@ -17,35 +19,39 @@
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	
-	<nav id="nav">
+	<nav id="nav" class="box container">
 		<p>Nav</p>
-		<ul>
+		<ul class="row" >
 			<li>
-				<a href="/test1">test1</a>
+				<a href="/test-pages/test1">test1</a>| 
 			</li>
 			<li>
-				<a href="/test2">test2</a>
+				<a href="/test-pages/test2">test2</a>| 
 			</li>
 			<li>
-				<a href="/test3">test3</a>
+				<a href="/test-pages/test3">test3</a>| 
 			</li>
 			<li>
-				<a href="/test4">test4</a>
+				<a href="/test-pages/test4">test4</a>| 
 			</li>
 		</ul>
 	</nav>
 
-
-	<div class="text">
-		This is a barebones page for testing the Holy Mountain Analytics script.<br/>
+	<br/><br/><br/>
+	<div class="text container">
+		This is a barebones page for testing the Planet Caravan Analytics script.<br/>
 		Please open the Console for messages from the script.
 	</div>
 
-	<section >
-		<p>General</p>
-		<ul>
+	<br/><br/><br/>
+	<section class="box container">
+		<p>Manual/Inline Events</p>
+		<p>
+			These links have inline GAEvent code on it.  Click one of these links, and you should see it show up in GA.
+		</p>
+		<ul class="row">
 			<li>
-				<a href="/test1" 
+				<a href="/test-pages/test1" 
 					data-event="GAEvent" 
 					data-category="Home" 
 					data-label="GAEvent Test 1" 
@@ -53,10 +59,10 @@
 					data-value="undefined"
 				>
 					test1
-				</a>
+				</a>| 
 			</li>
 			<li>
-				<a href="/test2" 
+				<a href="/test-pages/test2" 
 					data-event="GAEvent" 
 					data-category="Home" 
 					data-label="GAEvent Test 2" 
@@ -64,10 +70,10 @@
 					data-value="undefined"
 				>
 					test2
-				</a>
+				</a>| 
 			</li>
 			<li>
-				<a href="/test3" 
+				<a href="/test-pages/test3" 
 					data-event="GAEvent" 
 					data-category="Home" 
 					data-label="GAEvent Test 3" 
@@ -75,10 +81,10 @@
 					data-value="undefined"
 				>
 					test3
-				</a>
+				</a>| 
 			</li>
 			<li>
-				<a href="/test4" 
+				<a href="/test-pages/test4" 
 					data-event="GAEvent" 
 					data-category="Home" 
 					data-label="GAEvent Test 4" 
@@ -86,31 +92,39 @@
 					data-value="undefined"
 				>
 					test4
-				</a>
+				</a>| 
 			</li>
 		</ul>
 	</section>
 
-	<form>
-		<p>Form</p>
-		<input type="text" name="name" placeholder="Name">
-	</form>
+	<br/><br/><br/>
+	<section class="box container">
+		<p>Form Events</p>
+		<p>
+			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
+		</p>
+		<form>
+			<p>Form</p>
+			<input type="text" name="name" placeholder="Name">
+			<input type="submit" value="SUBMIT" name="">
+		</form>
+	</section>
 
-
-	<footer id="footer">
+	<br/><br/><br/>
+	<footer id="footer" class="box container">
 		<p>Footer</p>
-		<ul>
+		<ul class="row">
 			<li>
-				<a href="/test1">test1</a>
+				<a href="/test-pages/test1">test1</a>| 
 			</li>
 			<li>
-				<a href="/test2">test2</a>
+				<a href="/test-pages/test2">test2</a>| 
 			</li>
 			<li>
-				<a href="/test3">test3</a>
+				<a href="/test-pages/test3">test3</a>| 
 			</li>
 			<li>
-				<a href="/test4">test4</a>
+				<a href="/test-pages/test4">test4</a>| 
 			</li>
 		</ul>
 	</footer>
