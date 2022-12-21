@@ -40,8 +40,11 @@
 	<br/><br/><br/>
 	<div class="text container">
 		<p>
-			This is a barebones page for testing the Planet Caravan Analytics script.<br/>
+			This is a barebones page for testing the Planet Caravan Analytics script.
+			<br/>
 			Please open the Console for messages from the script.
+			<br/><br/>
+			Netlify demo link: <a href="https://planet-caravan-analytics.netlify.app/" target="_blank">planet-caravan-analytics.netlify.app</a>
 		</p>
 	</div>
 
@@ -119,9 +122,13 @@
 		<p>
 			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
 		</p>
+		<p>
+			Experimental - Set up event for partially filled/abandoned forms.
+		</p>
 		<form>
 			<p>Form</p>
 			<input type="text" name="name" placeholder="Name">
+			<input type="email" name="email" placeholder="Email">
 			<input type="submit" value="SUBMIT" name="">
 		</form>
 	</section>
@@ -130,8 +137,17 @@
 	<section class="box container">
 		<p>Scroll/InView Events</p>
 		<p>
-			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
+			This section is set up to trigger an event when it is visible on screen.
 		</p>
+	</section>
+
+	<br/><br/><br/>
+	<section class="box container">
+		<p>Hovered, Didn't Click Event - Experimental</p>
+		<p>
+			This button is set up with code to fire an event if the user hovers on or near an element but doesn't click it.  Be conscious of how you use this event.
+		</p>
+		<a class="button" href="#">Button</a>
 	</section>
 
 	<br/><br/><br/>
