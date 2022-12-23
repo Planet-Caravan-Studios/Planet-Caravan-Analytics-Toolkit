@@ -22,3 +22,28 @@ body{
 	list-style: none;
 	padding: 0;
 }
+
+.button{
+	border:solid 2px #000;
+	padding: 1em;
+	display: inline;
+}
+
+
+.UTMTesterTool{
+	border:solid 2px #000;
+	padding: 1em;
+}
+.UTMTesterTool .cell{
+	border-bottom:solid 2px #000;
+	padding-bottom: 0.25em;
+	display: flex;
+	align-items: center;
+}
+.utmField{
+	display: inline-block;
+	border:solid 2px #000;
+	padding: 0.25em;
+	width: 25ch;
+	height: 1em;
+}

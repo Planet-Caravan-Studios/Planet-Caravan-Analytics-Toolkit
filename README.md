@@ -12,7 +12,7 @@ This plugin also allows for indirect integration through Google Tag Manager, wit
 Use the below script/CDN link to add the analytics plugin to GTM as a tag.  Use a generic HTML tag just as you would with other vendor tags.
 
 ## CDN Link
-(https://unpkg.com/planet-caravan-analtyics-toolkit)
+<https://unpkg.com/planet-caravan-analtyics-toolkit>
 
 ``` html
 <!-- Planet Caravan Analytics Suite | CDN Link -->
@@ -23,7 +23,7 @@ Use the below script/CDN link to add the analytics plugin to GTM as a tag.  Use 
 
 ## Install via NPM
 
-If you're building a Node project, you can install this plugin as an NPM package.  Here's the link (https://www.npmjs.com/package/planet-caravan-analtyics-toolkit).
+If you're building a Node project, you can install this plugin as an NPM package.  Here's the link: <https://www.npmjs.com/package/planet-caravan-analtyics-toolkit>.
 
 `npm i planet-caravan-analtyics-toolkit`
 

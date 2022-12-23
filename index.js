@@ -22,8 +22,14 @@ CONSOLE LOG FUNCTIONS
 	
 ********************************************/
 $(document).ready(function(){
+	let showConsole = false;
+	var searchParams = new URLSearchParams(window.location.search); 
+	if(searchParams.has("debug")){
+		showConsole = true;
+	}
+
 	$.fn.consoleLogger = function(message) {
-		let showConsole = true;
+		
 		let style = '\
 			font-size: clamp(14px, 2vw, 20px);\
 			color: black;\
@@ -36,9 +42,8 @@ $(document).ready(function(){
 		}else{
 			//don't show console logs
 		}
-
-		
 	};
+	
 });
 
 $(document).ready(function() {
@@ -367,10 +372,11 @@ $(document).ready(function(){
 		window.dataLayer = window.dataLayer || [];
 		dataLayer.push({
 			'event': 					'utm_event',
-			'UTMSource': 	evCat,
-			'UTMAction': 		evAct,
-			'UTMLabel': 			evLab,
-			'UTMValue': 			evVal,
+			'utm_source': 			evCat,
+			'utm_medium': 		evAct,
+			'utm_campaign': 		evLab,
+			'utm_term': 			evVal,
+			'utm_content': 		evVal,
 		});
 
 		$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
