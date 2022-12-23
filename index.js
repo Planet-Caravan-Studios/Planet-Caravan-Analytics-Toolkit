@@ -14,6 +14,8 @@ Planet Caravan - Analytics Plugin
 INITIALIZATION
 
 ********************************************/
+
+
 /********************************************
 
 CONSOLE LOG FUNCTIONS
@@ -345,7 +347,7 @@ $(document).ready(function(){
 
 	/***** Fire Functions *****/
 
-		$('html').utm_form_add();
+		//$('html').utm_form_add();
 });
 
 
@@ -360,7 +362,22 @@ NOTES:
 ********************************************/
 
 $(document).ready(function(){
-	
+	try {
+		//Fire event
+		window.dataLayer = window.dataLayer || [];
+		dataLayer.push({
+			'event': 					'utm_event',
+			'UTMSource': 	evCat,
+			'UTMAction': 		evAct,
+			'UTMLabel': 			evLab,
+			'UTMValue': 			evVal,
+		});
+
+		$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
+
+	} catch (e) {
+		$('html').consoleLogger("GA Event Error");
+	}
 });
 
 

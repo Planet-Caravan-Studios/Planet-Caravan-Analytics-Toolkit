@@ -7,6 +7,9 @@ Enables inline GA Event tags, automated, programmatic tagging of elements, and J
 
 This plugin also allows for indirect integration through Google Tag Manager, without needing direct access to the website itself.  Documentation and instructions on this feature are coming soon.
 
+## CDN Link
+[https://unpkg.com/planet-caravan-analtyics-toolkit]
+
 ## Latest Features
 - UTM tracking and sessionization.  Plus automatically adding and filling out a set of UTM inputs in all forms.
 

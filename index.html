@@ -95,7 +95,7 @@
 	</section>
 
 	<br/><br/><br/>
-	<section id="" class="box container">
+	<section id="" class="box container" data-auto-tagger="autoTag1">
 		<p>Auto-Tagger Events</p>
 		<p>
 			These links are set up using the auto-tagger code.  Instead of setting the events using inline code, it is set with a single snippet of JS that adds the code to each element and sets the label based on the text or URL.  This can be useful for easily tagging all elements in a section, or tagging elements used across multiple sections/pages.
@@ -118,6 +118,25 @@
 
 	<br/><br/><br/>
 	<section class="box container">
+		<p>UTM Parameter Events</p>
+		<p>
+			The analytics suite includes support for persistent UTM parameters via JS sessionStorage.
+		</p>
+		<p>
+			Experimental - duplicate sessionStorage code with localStorage for long-term persistence. 
+		</p>
+		<p>
+			Experimental - log UTM parameters as GA events.
+		</p>
+		<p>
+			<a href="#?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test">
+				#?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
+			</a>
+		</p>
+	</section>
+
+	<br/><br/><br/>
+	<section class="box container">
 		<p>Form Events</p>
 		<p>
 			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
@@ -125,10 +144,10 @@
 		<p>
 			Experimental - Set up event for partially filled/abandoned forms.
 		</p>
-		<form>
+		<form action="#?formSuccess=1" method="post">
 			<p>Form</p>
-			<input type="text" name="name" placeholder="Name">
-			<input type="email" name="email" placeholder="Email">
+			<input type="text" name="name" placeholder="Name" required>
+			<input type="email" name="email" placeholder="Email" required>
 			<input type="submit" value="SUBMIT" name="">
 		</form>
 	</section>
@@ -137,7 +156,7 @@
 	<section class="box container">
 		<p>Scroll/InView Events</p>
 		<p>
-			This section is set up to trigger an event when it is visible on screen.
+			This section is set up to trigger an event when it is visible on screen.  In the past, this would require use of heavy JS codeGoogle Analytics supports this type of event natively, now
 		</p>
 	</section>
 
