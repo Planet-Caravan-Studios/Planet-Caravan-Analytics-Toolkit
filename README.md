@@ -23,7 +23,9 @@ Use the below script/CDN link to add the analytics plugin to GTM as a tag.  Use 
 
 ## Install via NPM
 
-If you're building a Node project, you can install this plugin as an NPM package.  Here's the link (https://www.npmjs.com/package/planet-caravan-analtyics-toolkit)
+If you're building a Node project, you can install this plugin as an NPM package.  Here's the link (https://www.npmjs.com/package/planet-caravan-analtyics-toolkit).
+
+`npm i planet-caravan-analtyics-toolkit`
 
 ---
 
