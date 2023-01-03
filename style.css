@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body{
 	font-family: monospace;
 	font-size: 1.25vw;
@@ -36,14 +42,21 @@ body{
 }
 .UTMTesterTool .cell{
 	border-bottom:solid 2px #000;
-	padding-bottom: 0.25em;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.5em;
 	display: flex;
 	align-items: center;
+}
+.utmLabel{
+	display: inline-block;
+	padding: 0.25em;
+	width: 15ch;
+	
 }
 .utmField{
 	display: inline-block;
 	border:solid 2px #000;
 	padding: 0.25em;
 	width: 25ch;
-	height: 1em;
+	
 }

@@ -43,7 +43,7 @@ $(document).ready(function(){
 			//don't show console logs
 		}
 	};
-	
+
 });
 
 $(document).ready(function() {
@@ -242,6 +242,13 @@ code example:
 UTM Parameter example:
 
 	https://website.com?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
+
+UTM parameters supported:
+	utm_source
+	utm_medium
+	utm_campaign
+	utm_term
+	utm_content
 	
 ********************************************/
 $(document).ready(function(){
@@ -407,3 +414,19 @@ $(document).ready(function(){
 });
 
 
+
+
+
+
+/********************************************
+
+Run Fumctions
+	
+********************************************/
+$(document).ready(function(){
+	/***** PRIME EVENT FIRING *****/
+		$('html').eventfire_ready();
+
+	/***** URL PARAMETER TAGS *****/
+		$('html').url_param_tag();
+});
