@@ -126,16 +126,19 @@
 			The analytics suite includes support for persistent UTM parameters via JS sessionStorage.
 		</p>
 		<p>
-			Experimental - duplicate sessionStorage code with localStorage for long-term persistence. 
+			<mark>[Experimental]</mark> - duplicate sessionStorage code with localStorage for long-term persistence. 
 		</p>
 		<p>
-			Experimental - log UTM parameters as GA events.
+			<mark>[Experimental]</mark> - log UTM parameters as GA events.
 		</p>
 		<p>
 			Simple UTM link: <br/>
-			<a href="/?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test">
+			<a href="/?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test" style="word-break: break-word;">
 				/?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
 			</a>
+		</p>
+		<p>
+			Google's <a href="https://ga-dev-tools.web.app/ga4/campaign-url-builder/" target="_blank">Campaign URL Builder</a> - use this to easily create URLs with UTM parameters.  Also, I don't really feel like building that tool from scratch.
 		</p>
 	</section>
 
@@ -146,7 +149,12 @@
 			This section will display your current UTM values.  Use this tool to test/demo the persistent UTM functions across pages.  
 		</p>
 		<p>
-			Google's <a href="https://ga-dev-tools.web.app/ga4/campaign-url-builder/" target="_blank">Campaign URL Builder</a> - use this to easily create URLs with UTM parameters.  Also, I don't really feel like building that tool from scratch.
+			<mark>[Experimental]</mark> - utm_state: this variable can have 3 possible values:
+			<ul>
+				<li>"url" - The UTM params are present in the URL</li>
+				<li>"sessionStorage" - The UTM params are present in the user's session</li>
+				<li>"localStorage" - The UTM params are present in the user's long-term cookie storage</li>
+			</ul>
 		</p>
 
 		<!-- UTM Tester Tool -->
@@ -168,6 +176,9 @@
 			<div class="cell">
 				<span class="utmLabel">utm_content:</span> <span class="utmField" data-utm="utm_content"></span>
 			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_state:</span> <span class="utmField" data-utm="utm_state"></span>
+			</div>
 
 		</div>
 
@@ -180,10 +191,10 @@
 			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
 		</p>
 		<p>
-			Experimental - Set up event for partially filled/abandoned forms.
+			<mark>[Experimental]</mark> - Set up event for partially filled/abandoned forms.
 		</p>
 		<p>
-			Experimental - Automatically  adds and auto-fills hidden form fields for the user's UTM values.
+			<mark>[Experimental]</mark> - Automatically  adds and auto-fills hidden form fields for the user's UTM values.
 		</p>
 		<form action="#?formSuccess=1" method="post">
 			<p>Form</p>
@@ -209,7 +220,7 @@
 
 	<br/><br/><br/>
 	<section class="box container">
-		<p>Hovered, Didn't Click Event - Experimental</p>
+		<p>Hovered, Didn't Click Event - <mark>[Experimental]</mark></p>
 		<p>
 			This button is set up with code to fire an event if the user hovers on or near an element but doesn't click it.  Be conscious of how you use this event.
 		</p>
