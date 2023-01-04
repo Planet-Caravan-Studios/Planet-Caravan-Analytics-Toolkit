@@ -26,6 +26,8 @@ $(document).ready(function(){
 	var searchParams = new URLSearchParams(window.location.search); 
 	if(searchParams.has("debug")){
 		showConsole = true;
+	} else {
+		console.log("Planet Caravan Analytics running.  Add '?debug' to your URL to show console messages.");
 	}
 
 	$.fn.consoleLogger = function(message) {
@@ -43,7 +45,7 @@ $(document).ready(function(){
 			//don't show console logs
 		}
 	};
-	
+
 });
 
 $(document).ready(function() {
@@ -90,11 +92,11 @@ $(document).ready(function(){
 				//Fire event
 				window.dataLayer = window.dataLayer || [];
 				dataLayer.push({
-					'event': 			'GAEvent',
+					'event': 					'GAEvent',
 					'eventCategory': 	evCat,
 					'eventAction': 		evAct,
-					'eventLabel': 		evLab,
-					'eventValue': 		evVal,
+					'eventLabel': 			evLab,
+					'eventValue': 			evVal,
 				});
 
 				$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
@@ -228,7 +230,7 @@ $(document).ready(function() {
 
 /********************************************
 
-UTM SESSION
+UTM LOGGER
 
 NOTES:
 	-	JS session closes when tab/browser is closed.
@@ -242,27 +244,72 @@ code example:
 UTM Parameter example:
 
 	https://website.com?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
+
+UTM parameters supported:
+	utm_source
+	utm_medium
+	utm_campaign
+	utm_term
+	utm_content
 	
 ********************************************/
 $(document).ready(function(){
 
 	var searchParams = new URLSearchParams(window.location.search); 
 
-	$('html').consoleLogger("===== UTM Session initialized =====");
+	$('html').consoleLogger("===== UTM tracking initialized =====");
 
 	/***** Functions *****/
 
-		//Log new UTMs
-		$.fn.utm_log_param = function(utm_type, utm_val) {
-			$('html').consoleLogger("UTM parameter detected.  Type: "+utm_type+", Value: "+utm_val);
+		function utm_logger(param) {
+			var searchParams = new URLSearchParams(window.location.search); 
+			var paramValue = "";
+			var utm_state = "";
+
+			if(searchParams.has(param)) {
+				//if UTM parameters are present in URL
+				utm_state = "url";
+				paramValue = searchParams.get(param);
+				sessionStorage.setItem(param, paramValue);
+				localStorage.setItem(param, paramValue);
+
+			}else if(sessionStorage.getItem(param)){
+				//if UTM parameters are not present in URL, but are in SessionStorage
+				utm_state = "sessionStorage";
+				paramValue = sessionStorage.getItem(param);
+
+			}else if(localStorage.getItem(param)){
+				//if UTM parameters are not present in URL or SessionStorage, but are in LocalStorage
+				utm_state = "localStorage";
+				paramValue = localStorage.getItem(param);
+
+			}
+			//console.log("UTM detected: "+param+": "+paramValue);
+			//return paramValue;
+			return {paramValue, utm_state};
+
 		};
 
-		//Log session UTMs
-		$.fn.utm_log_session = function(utm_type, utm_val) {
-			$('html').consoleLogger("UTM session detected.  Type: "+utm_type+", Value: "+utm_val);
-		};
+	/***** Run Functions *****/
+		var utm_source = utm_logger("utm_source");
+		var utm_medium = utm_logger("utm_medium");
+		var utm_campaign = utm_logger("utm_campaign");
+		var utm_term = utm_logger("utm_term");
+		var utm_content = utm_logger("utm_content");
+		var utm_state = utm_source.utm_state;
 
-		//Add UTM inputs to forms
+
+		if($(".UTMTesterTool").length){
+			$(".UTMTesterTool [data-utm='utm_source']").text(utm_source.paramValue);
+			$(".UTMTesterTool [data-utm='utm_medium']").text(utm_medium.paramValue);
+			$(".UTMTesterTool [data-utm='utm_campaign']").text(utm_campaign.paramValue);
+			$(".UTMTesterTool [data-utm='utm_term']").text(utm_term.paramValue);
+			$(".UTMTesterTool [data-utm='utm_content']").text(utm_content.paramValue);
+			$(".UTMTesterTool [data-utm='utm_state']").text(utm_state);
+		}
+
+
+	/***** Add UTM inputs to forms *****/
 		var hm_utm_input_code='\
 		<style>\
 			.hm_utm_input_group{\
@@ -303,56 +350,6 @@ $(document).ready(function(){
 			});
 		};
 
-	/***** Store Vars *****/
-
-		//UTM SOURCE
-		if(searchParams.has('utm_source')) {
-			var utm_source = searchParams.get('utm_source');
-			sessionStorage.setItem("utm_source", utm_source);
-			$(this).utm_log_param("utm_source", sessionStorage.getItem("utm_source"));
-		}else if(sessionStorage.getItem("utm_source")){
-			$(this).utm_log_session("utm_source", sessionStorage.getItem("utm_source"));
-		}
-
-		//UTM MEDIUM
-		if(searchParams.has('utm_medium')) {
-			var utm_medium = searchParams.get('utm_medium');
-			sessionStorage.setItem("utm_medium", utm_medium);
-			$(this).utm_log_param("utm_medium", sessionStorage.getItem("utm_medium"));
-		}else if(sessionStorage.getItem("utm_medium")){
-			$(this).utm_log_session("utm_medium", sessionStorage.getItem("utm_medium"));
-		}
-
-		//UTM CAMPAIGN
-		if(searchParams.has('utm_campaign')) {
-			var utm_campaign = searchParams.get('utm_campaign');
-			sessionStorage.setItem("utm_campaign", utm_campaign);
-			$(this).utm_log_param("utm_campaign", sessionStorage.getItem("utm_campaign"));
-		}else if(sessionStorage.getItem("utm_campaign")){
-			$(this).utm_log_session("utm_campaign", sessionStorage.getItem("utm_campaign"));
-		}
-
-		//UTM TERM
-		if(searchParams.has('utm_term')) {
-			var utm_term = searchParams.get('utm_term');
-			sessionStorage.setItem("utm_term", utm_term);
-			$(this).utm_log_param("utm_term", sessionStorage.getItem("utm_term"));
-		}else if(sessionStorage.getItem("utm_term")){
-			$(this).utm_log_session("utm_term", sessionStorage.getItem("utm_term"));
-		}
-
-		//UTM CONTENT
-		if(searchParams.has('utm_content')) {
-			var utm_content = searchParams.get('utm_content');
-			sessionStorage.setItem("utm_content", utm_content);
-			$(this).utm_log_param("utm_content", sessionStorage.getItem("utm_content"));
-		}else if(sessionStorage.getItem("utm_content")){
-			$(this).utm_log_session("utm_content", sessionStorage.getItem("utm_content"));
-		}
-
-	/***** Fire Functions *****/
-
-		//$('html').utm_form_add();
 });
 
 
@@ -366,25 +363,23 @@ NOTES:
 	
 ********************************************/
 
-$(document).ready(function(){
+/*$(document).ready(function(){
 	try {
 		//Fire event
 		window.dataLayer = window.dataLayer || [];
 		dataLayer.push({
 			'event': 					'utm_event',
-			'utm_source': 			evCat,
-			'utm_medium': 		evAct,
-			'utm_campaign': 		evLab,
-			'utm_term': 			evVal,
-			'utm_content': 		evVal,
+			'utm_source': 			utm_source,
+			'utm_medium': 		utm_medium,
+			'utm_campaign': 		utm_campaign,
+			'utm_term': 			utm_term,
+			'utm_content': 		utm_content,
 		});
-
-		$('html').consoleLogger("GA Event fired - Event Category: ["+evCat+"], Event Label: ["+evLab+"], Event Action: ["+evAct+"]");
 
 	} catch (e) {
 		$('html').consoleLogger("GA Event Error");
 	}
-});
+});*/
 
 
 
@@ -407,3 +402,19 @@ $(document).ready(function(){
 });
 
 
+
+
+
+
+/********************************************
+
+Run Fumctions
+	
+********************************************/
+$(document).ready(function(){
+	/***** PRIME EVENT FIRING *****/
+		$('html').eventfire_ready();
+
+	/***** URL PARAMETER TAGS *****/
+		//$('html').url_param_tag();
+});
