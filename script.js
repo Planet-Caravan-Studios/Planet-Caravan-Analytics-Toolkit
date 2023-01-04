@@ -2,7 +2,7 @@ $(document).ready(function() {
 
 /********************************************
 
-HOLY MOUNTAIN ANALYTICS
+PLANET CARAVAN ANALYTICS
 
 NOTES:
 	Make sure you have all autotagger instances run before you 
@@ -31,9 +31,4 @@ NOTES:
 
 			$('#footer a').autotagger(category, action, value, label_format);
 	
-	/***** PRIME EVENT FIRING *****/
-		$('html').eventfire_ready();
-
-	/***** URL PARAMETER TAGS *****/
-		$('html').url_param_tag();
 });

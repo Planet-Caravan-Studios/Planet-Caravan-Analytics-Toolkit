@@ -416,5 +416,5 @@ $(document).ready(function(){
 		$('html').eventfire_ready();
 
 	/***** URL PARAMETER TAGS *****/
-		$('html').url_param_tag();
+		//$('html').url_param_tag();
 });
