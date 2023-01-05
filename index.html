@@ -45,10 +45,15 @@
 	<div class="text container">
 		<p>
 			This is a barebones page for testing the Planet Caravan Analytics script.
-			<br/>
-			Please open the Console for messages from the script.
-			<br/><br/>
+		</p>
+		<p>
 			Netlify demo link: <a href="https://planet-caravan-analytics.netlify.app/" target="_blank">planet-caravan-analytics.netlify.app</a>
+		</p>
+		<p>
+			This plugin is now set up to run as a GTM tag and no longer requires direct integration as a JS file in the project code.
+		</p>
+		<p>
+			Please open the Console for messages from the script.
 		</p>
 	</div>
 
@@ -96,6 +101,20 @@
 				>test4</a>
 			</li>
 		</ul>
+		<p>Example:</p>
+		<div class="codeBlock">
+			<pre ><code>&lt;a 
+  href="/link-destination" 
+  data-event="GAEvent" 
+  data-category="Example_Category" 
+  data-label="Example_Label" 
+  data-action="Click" 
+  data-value="undefined"
+&gt;
+  Link Text
+&lt;/a&gt;</code></pre>
+		</div >
+		
 	</section>
 
 	<br/><br/><br/>
@@ -118,6 +137,20 @@
 				<a href="/test-pages/test4" >test4</a>
 			</li>
 		</ul>
+				<p>Example:</p>
+				<div class="codeBlock">
+					<pre ><code>var category  = "Nav";
+var action  = "Click";
+var value  = "";
+var label_format   = "";
+
+$('#nav a').autotagger(
+  category, 
+  action, 
+  value, 
+  label_format
+);</code></pre>
+				</div >
 	</section>
 
 	<br/><br/><br/>
@@ -251,9 +284,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 	
 	<!-- Analytics Plugin -->
-	<script type="text/javascript" src="index.js"></script>
+	<!-- <script type="text/javascript" src="index.js"></script> -->
 	<!-- Initialization, Function Calls, etc -->
-	<script type="text/javascript" src="script.js"></script>
+	<!-- <script type="text/javascript" src="script.js"></script> -->
 	<script type="text/javascript" src="utility.js"></script>
 
 </body>
