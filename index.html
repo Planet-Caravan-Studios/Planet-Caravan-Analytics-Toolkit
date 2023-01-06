@@ -59,7 +59,7 @@
 
 	<br/><br/><br/>
 	<section class="box container">
-		<p>Manual/Inline Events</p>
+		<h2>Manual/Inline Events</h2>
 		<p>
 			These links have inline GAEvent code on it.  Click one of these links, and you should see it show up in GA.
 		</p>
@@ -119,9 +119,9 @@
 
 	<br/><br/><br/>
 	<section id="" class="box container" data-auto-tagger="autoTag1">
-		<p>Auto-Tagger Events</p>
+		<h2>Auto-Tagger Events</h2>
 		<p>
-			These links are set up using the auto-tagger code.  Instead of setting the events using inline code, it is set with a single snippet of JS that adds the code to each element and sets the label based on the text or URL.  This can be useful for easily tagging all elements in a section, or tagging elements used across multiple sections/pages.
+			These links are set up using the auto-tagger feature.  Instead of setting the events using inline code, it is set using code in the GTM tag labeled "GA Events - Config".
 		</p>
 		<ul class="row">
 			<li>
@@ -155,7 +155,7 @@ $('#nav a').autotagger(
 
 	<br/><br/><br/>
 	<section class="box container">
-		<p>UTM Parameter Events</p>
+		<h2>UTM Parameter Events</h2>
 		<p>
 			The analytics suite includes support for persistent UTM parameters via JS sessionStorage.
 		</p>
@@ -178,7 +178,7 @@ $('#nav a').autotagger(
 
 	<br/><br/><br/>
 	<section id="UTMTester" class="box container">
-		<p>UTM tester</p>
+		<h2>UTM tester</h2>
 		<p>
 			This section will display your current UTM values.  Use this tool to test/demo the persistent UTM functions across pages.  
 		</p>
@@ -193,7 +193,7 @@ $('#nav a').autotagger(
 
 		<!-- UTM Tester Tool -->
 		<div class="UTMTesterTool">
-			<p>UTM Tester</p>
+			<h3>UTM Tester</h3>
 
 			<div class="cell">
 				<span class="utmLabel">utm_source:</span> <span class="utmField" data-utm="utm_source"></span>
@@ -220,7 +220,7 @@ $('#nav a').autotagger(
 
 	<br/><br/><br/>
 	<section class="box container">
-		<p>Form Events</p>
+		<h2>Form Events</h2>
 		<p>
 			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
 		</p>
@@ -239,10 +239,10 @@ $('#nav a').autotagger(
 	</section>
 
 	<br/><br/><br/>
-	<section class="box container">
-		<p>Scroll/InView Events</p>
+	<section id="VisibilityEvent1" class="box container">
+		<h2>Scroll/InView Events</h2>
 		<p>
-			This section is set up to trigger an event when it is visible on screen.  In the past, this would require use of heavy JS code, but Google Analytics 4 supports this type of event natively, now.
+			This section is set up to trigger an event when it is visible on screen.  In the past, this would require use of heavy JS code, but GTM now supports this type of event natively.
 		</p>
 		<div 
 			data-ga-scroll="Scroll Test 1"
@@ -252,14 +252,14 @@ $('#nav a').autotagger(
 		</div>
 	</section>
 
-	<br/><br/><br/>
+	<!-- <br/><br/><br/>
 	<section class="box container">
-		<p>Hovered, Didn't Click Event - <mark>[Experimental]</mark></p>
+		<h2>Hovered, Didn't Click Event - <mark>[Experimental]</mark></h2>
 		<p>
 			This button is set up with code to fire an event if the user hovers on or near an element but doesn't click it.  Be conscious of how you use this event.
 		</p>
 		<a class="button" href="#">Button</a>
-	</section>
+	</section> -->
 
 	<br/><br/><br/>
 	<footer id="footer" class="box container">

@@ -1,9 +1,9 @@
 # PLANET CARAVAN ANALYTICS TOOLKIT
-## version 1.1.1-beta
+## version 1.2.0
 
 Higher level analytics plugin for use with Google Tag Manager and Google Analytics.  
 
-Enables inline GA Event tags, automated, programmatic tagging of elements, and JS-driven form events.
+Enables inline GA Event tags, automated, programmatic tagging of elements, persistent UTM values and UTM events.
 
 ---
 
