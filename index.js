@@ -49,14 +49,8 @@ $(document).ready(function(){
 });
 
 $(document).ready(function() {
-
-
-
 	//console log
 	$('html').consoleLogger("===== Planet Caravan Analytics initialized. =====");
-
-
-
 });
 
 
