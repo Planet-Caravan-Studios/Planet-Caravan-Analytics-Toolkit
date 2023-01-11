@@ -1,5 +1,5 @@
 # PLANET CARAVAN ANALYTICS TOOLKIT
-## version 1.2.0
+## version 1.2.1
 
 Higher level analytics plugin for use with Google Tag Manager and Google Analytics.  
 
