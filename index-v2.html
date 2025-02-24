@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Analytics Suite Testing | Planet Caravan Studios</title>
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-WN2V7LM');</script>
+	<!-- End Google Tag Manager -->
+
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WN2V7LM"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
+	<nav id="nav" class="box container">
+		<p>Nav</p>
+		<ul class="row" >
+			<li>
+				<a href="/">Home</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test1">test1</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test2">test2</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test3">test3</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test4">test4</a>
+			</li>
+		</ul>
+	</nav>
+
+	<br/><br/><br/>
+	<div class="text container">
+		<p>
+			This is a barebones page for testing the Planet Caravan Analytics script.
+		</p>
+		<p>
+			Netlify demo link: <a href="https://planet-caravan-analytics.netlify.app/" target="_blank">planet-caravan-analytics.netlify.app</a>
+		</p>
+		<p>
+			This plugin is now set up to run as a GTM tag and no longer requires direct integration as a JS file in the project code.
+		</p>
+		<p>
+			Please open the Console for messages from the script.
+		</p>
+	</div>
+
+	<br/><br/><br/>
+	<section class="box container">
+		<h2>Manual/Inline Events</h2>
+		<p>
+			These links have inline GAEvent code on it.  Click one of these links, and you should see it show up in GA.
+		</p>
+		<ul class="row">
+			<li>
+				<a href="/" 
+					data-event="GAEvent" 
+					data-category="Home" 
+					data-label="Home" 
+					data-action="Click" 
+					data-value="undefined"
+				>Home</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test1" 
+					data-event="GAEvent" 
+					data-category="Home" 
+					data-label="GAEvent Test 1" 
+					data-action="Click" 
+					data-value="undefined"
+				>test1</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test2" 
+					data-event="GAEvent" 
+					data-category="Home" 
+					data-label="GAEvent Test 2" 
+					data-action="Click" 
+					data-value="undefined"
+				>test2</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test3" 
+					data-event="GAEvent" 
+					data-category="Home" 
+					data-label="GAEvent Test 3" 
+					data-action="Click" 
+					data-value="undefined"
+				>test3</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test4" 
+					data-event="GAEvent" 
+					data-category="Home" 
+					data-label="GAEvent Test 4" 
+					data-action="Click" 
+					data-value="undefined"
+				>test4</a>
+			</li>
+		</ul>
+		<p>Example:</p>
+		<div class="codeBlock">
+			<pre ><code>&lt;a 
+  href="/link-destination" 
+  data-event="GAEvent" 
+  data-category="Example_Category" 
+  data-label="Example_Label" 
+  data-action="Click" 
+  data-value="undefined"
+&gt;
+  Link Text
+&lt;/a&gt;</code></pre>
+		</div >
+		
+	</section>
+
+	<br/><br/><br/>
+	<section id="" class="box container" data-auto-tagger="autoTag1">
+		<h2>Auto-Tagger Events</h2>
+		<p>
+			These links are set up using the auto-tagger feature.  Instead of setting the events using inline code, it is set using code in the GTM tag labeled "GA Events - Config".
+		</p>
+		<ul class="row">
+			<li>
+				<a href="/test-pages/test1" >test1</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test2" >test2</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test3" >test3</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test4" >test4</a>
+			</li>
+		</ul>
+				<p>Example:</p>
+				<div class="codeBlock">
+					<pre ><code>var category  = "Nav";
+var action  = "Click";
+var value  = "";
+var label_format   = "";
+
+$('#nav a').autotagger(
+  category, 
+  action, 
+  value, 
+  label_format
+);</code></pre>
+				</div >
+	</section>
+
+	<br/><br/><br/>
+	<section class="box container">
+		<h2>UTM Parameter Events</h2>
+		<p>
+			The analytics suite includes support for persistent UTM parameters via JS sessionStorage.
+		</p>
+		<p>
+			<mark>[Experimental]</mark> - duplicate sessionStorage code with localStorage for long-term persistence. 
+		</p>
+		<p>
+			<mark>[Experimental]</mark> - log UTM parameters as GA events.
+		</p>
+		<p>
+			Simple UTM link: <br/>
+			<a href="/?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test" style="word-break: break-word;">
+				/?utm_source=test&utm_medium=test&utm_campaign=test&utm_term=test&utm_content=test
+			</a>
+		</p>
+		<p>
+			Google's <a href="https://ga-dev-tools.web.app/ga4/campaign-url-builder/" target="_blank">Campaign URL Builder</a> - use this to easily create URLs with UTM parameters.  Also, I don't really feel like building that tool from scratch.
+		</p>
+	</section>
+
+	<br/><br/><br/>
+	<section id="UTMTester" class="box container">
+		<h2>UTM tester</h2>
+		<p>
+			This section will display your current UTM values.  Use this tool to test/demo the persistent UTM functions across pages.  
+		</p>
+		<p>
+			<mark>[Experimental]</mark> - utm_state: this variable shows the current state of the UTM parameters, and can have 3 possible values.  Note that this UTM field is non-standard.
+			<ul style="margin-top: 0px;">
+				<li>"url" - The UTM params are present in the URL</li>
+				<li>"sessionStorage" - The UTM params are present in the user's session</li>
+				<li>"localStorage" - The UTM params are present in the user's long-term cookie storage</li>
+			</ul>
+		</p>
+
+		<!-- UTM Tester Tool -->
+		<div class="UTMTesterTool">
+			<h3>UTM Tester</h3>
+
+			<div class="cell">
+				<span class="utmLabel">utm_source:</span> <span class="utmField" data-utm="utm_source"></span>
+			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_medium:</span> <span class="utmField" data-utm="utm_medium"></span>
+			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_campaign:</span> <span class="utmField" data-utm="utm_campaign"></span>
+			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_term:</span> <span class="utmField" data-utm="utm_term"></span>
+			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_content:</span> <span class="utmField" data-utm="utm_content"></span>
+			</div>
+			<div class="cell">
+				<span class="utmLabel">utm_state:</span> <span class="utmField" data-utm="utm_state"></span>
+			</div>
+
+		</div>
+
+	</section>
+
+	<br/><br/><br/>
+	<section class="box container">
+		<h2>Form Events</h2>
+		<p>
+			This form is set up with GA events triggered by the form submission, not on just clicking the submit button.  You should only see the success event fire when the form successfully submits, otherwise you'll get false positive events.
+		</p>
+		<p>
+			<mark>[Experimental]</mark> - Set up event for partially filled/abandoned forms.
+		</p>
+		<p>
+			<mark>[Experimental]</mark> - Automatically  adds and auto-fills hidden form fields for the user's UTM values.
+		</p>
+		<form action="#?formSuccess=1" method="post">
+			<p>Form</p>
+			<input type="text" name="name" placeholder="Name" required>
+			<input type="email" name="email" placeholder="Email" required>
+			<input type="submit" value="SUBMIT" name="">
+		</form>
+	</section>
+
+	<br/><br/><br/>
+	<section  class="box container">
+		<h2>Scroll/InView Events</h2>
+		<p>
+			This section is set up to trigger an event when it is visible on screen.  In the past, this would require use of heavy JS code, but GTM now supports this type of event natively.
+		</p>
+		<div 
+			data-ga-scroll="Scroll Test 1"
+			style="border: solid 2px #000; display: inline; padding: 1em 1em;" 
+		>
+			This element is tagged for a scroll event.
+		</div>
+	</section>
+
+	<!-- <br/><br/><br/>
+	<section class="box container">
+		<h2>Hovered, Didn't Click Event - <mark>[Experimental]</mark></h2>
+		<p>
+			This button is set up with code to fire an event if the user hovers on or near an element but doesn't click it.  Be conscious of how you use this event.
+		</p>
+		<a class="button" href="#">Button</a>
+	</section> -->
+
+	<br/><br/><br/>
+	<footer id="footer" class="box container">
+		<p>Footer</p>
+		<ul class="row">
+			<li>
+				<a href="/test-pages/test1">test1</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test2">test2</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test3">test3</a>| 
+			</li>
+			<li>
+				<a href="/test-pages/test4">test4</a>
+			</li>
+		</ul>
+		<p style="font-size:0.65em;">Created by Alec Reimel | Planet Caravan Studios | Under Employment of The Grovery, LLC.</p>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	
+	<!-- Analytics Plugin -->
+	<!-- <script type="text/javascript" src="index.js"></script> -->
+	<!-- Initialization, Function Calls, etc -->
+	<!-- <script type="text/javascript" src="script.js"></script> -->
+	<script type="text/javascript" src="utility.js"></script>
+
+</body>
+	
+</html>
